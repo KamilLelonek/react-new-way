@@ -67,7 +67,7 @@ new WebpackDevServer webpack(config),
 #***************
 ###
 
-server = app.listen 8080, ->
+server = app.listen process.env.PORT || 5000, ->
   host = server.address().address
   port = server.address().port
   console.log 'Essential React listening at http://%s:%s', host, port

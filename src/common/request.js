@@ -12,7 +12,7 @@ export let getData = function(url, requestData = {}) {
   let requestCompleted = 4;
   let statusSuccess    = 200;
   let request          = new XMLHttpRequest();
-  let baseUrl          = "http://localhost:8080";
+  let baseUrl          = "";
 
   if (!request) {
     throw new Error('Could not initialize XMLHttpRequest object!');
