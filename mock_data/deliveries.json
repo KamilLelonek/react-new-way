@@ -1,0 +1,4 @@
+[
+  { "id": "a72a8a66-f166-4965-b0da-62f95d223706", "name": "regular", "description": "Delivery within 3 next business days." },
+  { "id": "2993a641-891f-49cb-ab15-b8388d6a54e8", "name": "express", "description": "Delivery by the next business day."    }
+]

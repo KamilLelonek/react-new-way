@@ -1,0 +1,5 @@
+[
+  { "id": "73636909-71a4-400c-8987-e6d1b0f381bc", "name": "short",  "oz_capacity": 8  },
+  { "id": "9ca5803a-836c-4f25-8eea-00168460dc23", "name": "tall",   "oz_capacity": 12 },
+  { "id": "3f35d3cf-bb40-4b94-a1b1-1804e46ee5b9", "name": "grande", "oz_capacity": 16 }
+]
