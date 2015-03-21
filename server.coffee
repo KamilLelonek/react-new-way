@@ -1,9 +1,6 @@
-express          = require 'express'
-webpack          = require 'webpack'
-WebpackDevServer = require 'webpack-dev-server'
-config           = require './webpack.local.config'
-fs               = require 'fs'
-app              = express()
+express = require 'express'
+app     = express()
+fs      = require 'fs'
 
 app.use (req, res, next) ->
   userWantsToOpenFile = req.originalUrl isnt '/'
@@ -52,11 +49,16 @@ app.get /.+/, (req, res) ->
 #***********************************************************
 ###
 
+WebpackDevServer = require 'webpack-dev-server'
+webpack          = require 'webpack'
+config           = require './webpack.local.config'
+
 new WebpackDevServer webpack(config),
   publicPath:         config.output.publicPath
   hot:                true
   noInfo:             true
   historyApiFallback: true
+  https:              true
 .listen 9090, 'localhost', (err, result) ->
   console.log err if err
 

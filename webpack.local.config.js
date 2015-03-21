@@ -16,14 +16,10 @@ module.exports = {
   devtool: "eval",
 
   // Set entry point to ./src/main and include necessary files for hot load
-  entry:  [
-    "webpack-dev-server/client?http://localhost:9090",
-    "webpack/hot/only-dev-server",
-    "./src/main"
-  ],
+  entry:  ["./src/main"],
 
-  // This will not actually create a bundle.js file in ./build. It is used
-  // by the dev server for dynamic hot loading.
+  // This will not actually create a bundle.js file in ./build.
+  // It is used by the dev server for dynamic hot loading.
   output: {
     path:       __dirname + "/build/",
     filename:   "app.js",
@@ -40,6 +36,7 @@ module.exports = {
     loaders: [
       // Transform source code using Babel and React Hot Loader
       { test: /\.jsx?$/, exclude: /node_modules/, loaders: ["react-hot", "babel-loader"]},
+      // Compile SASS files
       { test: /\.sass$/, exclude: /node_modules/, loader: "style!css!sass?indentedSyntax" }
     ]
   },
