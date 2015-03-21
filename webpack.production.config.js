@@ -13,7 +13,8 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: "babel-loader" }
+      { test: /\.jsx?$/, exclude: /node_modules/, loader: "babel-loader" },
+      { test: /\.sass$/, exclude: /node_modules/, loader: "style!css!sass?indentedSyntax" }
     ]
   },
 
