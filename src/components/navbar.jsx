@@ -1,7 +1,7 @@
 import React  from "react";
 import Router from "react-router";
 
-let { Route, DefaultRoute, RouteHandler, Link } = Router;
+let Link = Router.Link;
 
 export default class Navbar extends React.Component {
   render() {
