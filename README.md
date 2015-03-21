@@ -10,7 +10,7 @@ Makre sure you have [NodeJS](https://nodejs.org/download/) installed.
 
 To install all of required dependecies run:
 
-   ./scripts/setup.sh
+    ./scripts/setup.sh
 
 ## Run
 
