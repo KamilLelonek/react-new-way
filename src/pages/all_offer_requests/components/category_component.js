@@ -6,7 +6,10 @@ class CategoryComponent extends React.Component {
   render() {
     return(
       <div>
-        <div className="collapsible-header"><i className="mdi-image-filter-drama"></i>CategoryComponent</div>
+        <div className="collapsible-header">
+          <i className="mdi-action-shopping-basket"></i>
+          CategoryComponent
+        </div>
         <div className="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
       </div>
     )

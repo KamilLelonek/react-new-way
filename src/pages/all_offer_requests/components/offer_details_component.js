@@ -6,7 +6,10 @@ class OfferDetailsComponent extends React.Component {
   render() {
     return(
       <div>
-        <div className="collapsible-header active"><i className="mdi-image-filter-drama"></i>First</div>
+        <div className="collapsible-header active">
+          <i className="mdi-action-assignment"></i>
+          Offer Request
+        </div>
         <div className="collapsible-body">
           <p>Lorem ipsum dolor sit amet.</p>
         </div>

@@ -6,7 +6,10 @@ class DeliveryComponent extends React.Component {
   render() {
     return(
       <div>
-        <div className="collapsible-header"><i className="mdi-image-filter-drama"></i>DeliveryComponent</div>
+        <div className="collapsible-header">
+          <i className="mdi-maps-local-shipping"></i>
+          DeliveryComponent
+        </div>
         <div className="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
       </div>
     )

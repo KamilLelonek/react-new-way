@@ -6,7 +6,10 @@ class CustomerComponent extends React.Component {
   render() {
     return(
       <div>
-        <div className="collapsible-header"><i className="mdi-image-filter-drama"></i>CustomerComponent</div>
+        <div className="collapsible-header">
+          <i className="mdi-social-person"></i>
+          CustomerComponent
+        </div>
         <div className="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
       </div>
     )
