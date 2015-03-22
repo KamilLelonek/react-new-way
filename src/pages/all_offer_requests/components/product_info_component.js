@@ -6,9 +6,9 @@ class ProductInfoComponent extends React.Component {
   render() {
     return(
       <div>
-        <p>
-          ProductInfoComponent
-        </p>
+        <ul className="collection">
+          <a className="collection-item">Quantity<span className="badge">{ this.props.product.quantity }</span></a>
+        </ul>
       </div>
     )
   }

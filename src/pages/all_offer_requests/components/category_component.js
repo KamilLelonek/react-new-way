@@ -10,7 +10,12 @@ class CategoryComponent extends React.Component {
           <i className="mdi-action-shopping-basket"></i>
           CategoryComponent
         </div>
-        <div className="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        <div className="collapsible-body">
+          <ul className="collection">
+            <a className="collection-item">Name<span className="badge">{ this.props.category.name }</span></a>
+            <a className="collection-item">OZ capacity<span className="badge">{ this.props.category.oz_capacity }</span></a>
+          </ul>
+        </div>
       </div>
     )
   }

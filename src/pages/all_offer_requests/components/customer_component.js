@@ -10,7 +10,12 @@ class CustomerComponent extends React.Component {
           <i className="mdi-social-person"></i>
           CustomerComponent
         </div>
-        <div className="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        <div className="collapsible-body">
+          <ul className="collection">
+            <a className="collection-item">Name<span className="badge">{ this.props.customer.name }</span></a>
+            <a className="collection-item">Email<span className="badge">{ this.props.customer.email }</span></a>
+          </ul>
+        </div>
       </div>
     )
   }

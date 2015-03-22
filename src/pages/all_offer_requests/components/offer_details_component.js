@@ -11,7 +11,9 @@ class OfferDetailsComponent extends React.Component {
           Offer Request
         </div>
         <div className="collapsible-body">
-          <p>Lorem ipsum dolor sit amet.</p>
+          <ul className="collection">
+            <a className="collection-item">ID<span className="badge">{ this.props.offerRequest.id }</span></a>
+          </ul>
         </div>
       </div>
     )

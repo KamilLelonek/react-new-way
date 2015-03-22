@@ -10,7 +10,13 @@ class CompanyComponent extends React.Component {
           <i className="mdi-communication-business"></i>
           CompanyComponent
         </div>
-        <div className="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        <div className="collapsible-body">
+          <ul className="collection">
+            <a className="collection-item">Name<span className="badge">{ this.props.company.name }</span></a>
+            <a className="collection-item">Phone<span className="badge">{ this.props.company.phone }</span></a>
+            <a className="collection-item">Address<span className="badge">{ this.props.company.address }</span></a>
+          </ul>
+        </div>
       </div>
     )
   }

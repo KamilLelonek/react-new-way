@@ -8,7 +8,7 @@ export default class Company {
   static buildFromJson(offerRequestJson) {
     return new Company(
       offerRequestJson['company_name'],
-      offerRequestJson['company_email'],
+      offerRequestJson['company_phone'],
       offerRequestJson['company_address']
     );
   }

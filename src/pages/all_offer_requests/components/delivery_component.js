@@ -10,7 +10,12 @@ class DeliveryComponent extends React.Component {
           <i className="mdi-maps-local-shipping"></i>
           DeliveryComponent
         </div>
-        <div className="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        <div className="collapsible-body">
+          <ul className="collection">
+            <a className="collection-item">Name<span className="badge">{ this.props.delivery.name }</span></a>
+            <a className="collection-item">Description<span className="badge">{ this.props.delivery.description }</span></a>
+          </ul>
+        </div>
       </div>
     )
   }
