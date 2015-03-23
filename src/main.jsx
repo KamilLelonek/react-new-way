@@ -1,4 +1,5 @@
 require("./stylesheets/main.sass")
+require('sugar');
 
 import "babel-core/polyfill";
 

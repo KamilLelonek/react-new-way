@@ -5,11 +5,15 @@ import ProductsInputAddButton from "./products_input_add_button"
 
 class ProductsInput extends React.Component {
   getNewProduct() {
-    return <ProductInput categories={ this.props.categories } key={ Math.random() } />;
+    return <ProductInput removeProduct={ this.removeProduct.bind(this) } categories={ this.props.categories } key={ Math.random() } id={ Math.random() } />;
   }
 
   addNewProduct() {
     this.setState({ products: this.state.products.concat(this.getNewProduct()) });
+  }
+
+  removeProduct(id) {
+    this.setState({ products: this.state.products.remove(product => product.props.id === id) });
   }
 
   componentWillMount() {

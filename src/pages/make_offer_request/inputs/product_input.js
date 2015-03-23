@@ -1,7 +1,8 @@
 import React from "react";
 
-import CategoryInput from "./category_input"
-import AmountInput   from "./amount_input"
+import CategoryInput             from "./category_input"
+import AmountInput               from "./amount_input"
+import ProductsInputRemoveButton from "./product_input_remove_button"
 
 class ProductInput extends React.Component {
   render() {
@@ -12,9 +13,7 @@ class ProductInput extends React.Component {
           <AmountInput />
         </div>
         <div className="col s1">
-          <a className="btn-floating btn-large waves-effect waves-light red">
-            <i className="mdi-content-remove"></i>
-          </a>
+          <ProductsInputRemoveButton removeProduct={ this.props.removeProduct.bind(this, this.props.id) } />
         </div>
       </div>
     );
@@ -22,5 +21,7 @@ class ProductInput extends React.Component {
 };
 
 ProductInput.propTypes = { categories: React.PropTypes.array };
+ProductInput.propTypes = { removeProduct: React.PropTypes.func };
+ProductInput.propTypes = { id: React.PropTypes.number };
 
 export default ProductInput;
