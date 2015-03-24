@@ -13,8 +13,10 @@ export default class Footer extends React.Component {
     return(
       <footer className="page-footer light-blue ">
         <div className="container">
-          <h5 className="white-text">Footer Content</h5>
-          <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+          <h5 className="white-text">ReactJS frontend for Rails new way API</h5>
+          <p className="grey-text text-lighten-4">
+            You can find the code on <a className="white-text" target="_blank" href="https://github.com/search?utf8=%E2%9C%93&q=user%3AKamilLelonek+new-way">GitHub</a>
+          </p>
         </div>
         <div className="light-blue lighten-2 footer-copyright">
           <div className="container">
