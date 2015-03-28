@@ -1,8 +1,11 @@
 import React from "react";
 
+import { clearInput } from "../../../common/clear_input";
+
 export default class CustomerDetailsInput extends React.Component {
   resetState() {
-    console.log(this + " resetState");
+    clearInput('customer_name');
+    clearInput('customer_email');
   }
 
   render() {
