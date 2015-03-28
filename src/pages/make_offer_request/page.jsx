@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react/addons";
 
 import { getData, postData } from "../../common/request";
 
@@ -23,19 +23,17 @@ export default class MakeOfferRequest extends React.Component {
 
   setInitialState() {
     let [categories, deliveries] = this.props.data["make-offer-request"];
-    this.state = { categories, deliveries };
+    this.state = { categories, deliveries, loading: false };
   }
 
   clearInputs() {
     /**
       1. Validate input
-      2. Show progress
+      2. Show progress // this.toggleSpinner(true);
       3. Send date
       4. Show result
-      5. Reset form
+      5. Reset form // this.resetForm();
     */
-
-    this.resetForm();
   }
 
   resetForm() {
@@ -43,16 +41,35 @@ export default class MakeOfferRequest extends React.Component {
     Object.keys(references).forEach((reference_name) => references[reference_name].resetState());
   }
 
+  toggleSpinner(show) {
+    this.setState(React.addons.update(this.state, { $merge: { loading: show } }));
+  }
+
   render() {
-    return (
+    let component = this.state.loading ?
+      <div className="preloader-wrapper big active">
+        <div className="spinner-layer spinner-blue">
+          <div className="circle-clipper left">
+            <div className="circle"></div>
+          </div><div className="gap-patch">
+            <div className="circle"></div>
+          </div><div className="circle-clipper right">
+            <div className="circle"></div>
+          </div>
+        </div>
+      </div>
+    :
+      <from>
+        <CustomerDetailsInput ref="customer_details" />
+        <CompanyDetailsInput  ref="company_details"  />
+        <ProductsInput        ref="products"         categories={ this.state.categories } />
+        <DeliveryInput        ref="delivery"         deliveries={ this.state.deliveries } />
+        <SubmitButton clearInputs={ this.clearInputs.bind(this) } />
+      </from>;
+
+    return(
       <div id="make-offer-request-page" className="container">
-        <from>
-          <CustomerDetailsInput ref="customer_details" key="customer_details" />
-          <CompanyDetailsInput  ref="company_details"  key="company_details"  />
-          <ProductsInput        ref="products"         key="products"         categories={ this.state.categories } />
-          <DeliveryInput        ref="delivery"         key="delivery"         deliveries={ this.state.deliveries } />
-          <SubmitButton clearInputs={ this.clearInputs.bind(this) } />
-        </from>
+        { component }
       </div>
     );
   }
