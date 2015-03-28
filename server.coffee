@@ -12,7 +12,7 @@ app.use (req, res, next) ->
   else
     next()
 
-###***********************************************************
+###********************************************************
 #
 # Express routes for:
 #   - index.html
@@ -40,7 +40,7 @@ app.get /.+/, (req, res) ->
 
   fileExists and respondWithJSON() or respondWithIndexHTML()
 
-###************************************************************
+###*********************************************************
 #
 # Webpack Dev Server
 #
@@ -58,11 +58,10 @@ new WebpackDevServer webpack(config),
   hot:                true
   noInfo:             true
   historyApiFallback: true
-  https:              true
 .listen 9090, 'localhost', (err, result) ->
   console.log err if err
 
-###*****************
+###*************
 #
 # Express server
 #
@@ -70,6 +69,4 @@ new WebpackDevServer webpack(config),
 ###
 
 server = app.listen process.env.PORT || 5000, ->
-  host = server.address().address
-  port = server.address().port
-  console.log 'Essential React listening at http://%s:%s', host, port
+  console.log 'Essential React listening at http://localhost:%s/', server.address().port
