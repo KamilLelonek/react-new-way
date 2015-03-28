@@ -5,6 +5,10 @@ import AmountInput               from "./amount_input"
 import ProductsInputRemoveButton from "./product_input_remove_button"
 
 class ProductInput extends React.Component {
+  resetState() {
+    console.log(this + " resetState");
+  }
+
   render() {
     return (
       <div className="row">

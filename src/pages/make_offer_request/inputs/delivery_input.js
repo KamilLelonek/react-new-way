@@ -1,6 +1,10 @@
 import React from "react";
 
 class DeliveryInput extends React.Component {
+  resetState() {
+    console.log(this + " resetState");
+  }
+
   componentWillMount() {
     this.deliveries =
       this.props.deliveries.map(

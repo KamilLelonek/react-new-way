@@ -1,6 +1,10 @@
 import React from "react";
 
-class AmountInput extends React.Component {
+export default class AmountInput extends React.Component {
+  resetState() {
+    console.log(this + " resetState");
+  }
+
   render() {
     return (
       <form action="#">
@@ -10,6 +14,4 @@ class AmountInput extends React.Component {
       </form>
     );
   }
-};
-
-export default AmountInput;
+}

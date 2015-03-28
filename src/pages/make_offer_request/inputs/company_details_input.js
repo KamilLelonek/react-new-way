@@ -1,6 +1,10 @@
 import React from "react";
 
 export default class CompanyDetailsInput extends React.Component {
+  resetState() {
+    console.log(this + " resetState");
+  }
+
   render() {
     return (
       <div className="row">
@@ -26,4 +30,4 @@ export default class CompanyDetailsInput extends React.Component {
       </div>
     );
   }
-};
+}

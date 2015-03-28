@@ -1,6 +1,10 @@
 import React from "react";
 
 export default class CustomerDetailsInput extends React.Component {
+  resetState() {
+    console.log(this + " resetState");
+  }
+
   render() {
     return (
       <div className="row">
