@@ -4,9 +4,10 @@
  *
  * @param  {String} url         the request url
  * @param  {Object} requestData the JSON data to send as the request body
+ * @param  {String} method      HTTP method that request should be opened with
  * @return {Promise}            resolves or rejects according to the response
  */
-export let getData = function(url, requestData = {}) {
+let generalRequest = function(url, requestData, method) {
   // return new Promise(function(resolve, reject) { resolve(url); });
 
   let requestCompleted = 4;
@@ -31,10 +32,13 @@ export let getData = function(url, requestData = {}) {
       }
     }
 
-    request.open('GET', baseUrl+url);
+    request.open(method, baseUrl+url);
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(JSON.stringify(requestData));
   });
 
   return promise;
 };
+
+export let getData  = (url, requestData) => generalRequest(url, requestData, 'GET' );
+export let postData = (url, requestData) => generalRequest(url, requestData, 'POST');
