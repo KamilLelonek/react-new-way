@@ -3,7 +3,7 @@ app     = express()
 fs      = require 'fs'
 
 app.use (req, res, next) ->
-  userWantsToOpenFile = req.originalUrl isnt '/'
+  userWantsToOpenFile = req.originalUrl isnt '/' and req.originalUrl isnt '/make-offer-request'
   fileNotExists       = not fs.existsSync "./mock_data#{req.originalUrl}.json"
   redirectToHomePage  = -> res.redirect 301, '/'
 
