@@ -4,12 +4,18 @@ import ProductInput           from "./product_input"
 import ProductsInputAddButton from "./products_input_add_button"
 
 class ProductsInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { products: [] };
+  }
+
   resetState() {
-    console.log(this + " resetState");
+     this.setState({ products: [] });
   }
 
   getNewProduct() {
-    return <ProductInput removeProduct={ this.removeProduct.bind(this) } categories={ this.props.categories } key={ Math.random() } id={ Math.random() } />;
+    let product_id = Math.random();
+    return <ProductInput removeProduct={ this.removeProduct.bind(this) } categories={ this.props.categories } key={ product_id } id={ product_id } />;
   }
 
   addNewProduct() {
@@ -18,10 +24,6 @@ class ProductsInput extends React.Component {
 
   removeProduct(id) {
     this.setState({ products: this.state.products.remove(product => product.props.id === id) });
-  }
-
-  componentWillMount() {
-    this.setState({ products: [this.getNewProduct()] });
   }
 
   render() {

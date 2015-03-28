@@ -1,10 +1,6 @@
 import React from "react";
 
 class CategoryInput extends React.Component {
-  resetState() {
-    console.log(this + " resetState");
-  }
-
   componentWillMount() {
     this.categories =
       this.props.categories.map(

@@ -2,7 +2,8 @@ import React from "react";
 
 class DeliveryInput extends React.Component {
   resetState() {
-    console.log(this + " resetState");
+    let element = document.getElementById('delivery_option');
+    element.value = this.props.deliveries.first.id;
   }
 
   componentWillMount() {
@@ -21,7 +22,7 @@ class DeliveryInput extends React.Component {
     return (
       <div>
         <label>Delivery</label>
-        <select defaultValue="Select delivery">
+        <select id="delivery_option" defaultValue="Select delivery">
           { this.deliveries }
         </select>
       </div>
