@@ -6,34 +6,39 @@ import ProductsInputAddButton from "../buttons/products_input_add_button"
 class ProductsInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { products: [] };
+    this.state = { productsIDs: [] };
   }
 
   resetState() {
-     this.setState({ products: [] });
-  }
-
-  getNewProduct() {
-    let product_id = Math.random();
-    return <ProductInput removeProduct={ this.removeProduct.bind(this) } categories={ this.props.categories } key={ product_id } id={ product_id } />;
-  }
-
-  addNewProduct() {
-    this.setState({ products: this.state.products.concat(this.getNewProduct()) });
-  }
-
-  removeProduct(id) {
-    this.setState({ products: this.state.products.remove(product => product.props.id === id) });
+     this.setState({ productsIDs: [] });
   }
 
   getProducts() {
+    let references = this.refs;
+    return Object.keys(references).map(reference_name => references[reference_name].getProduct());
+  }
 
+  getNewProductID() {
+    return this.state.productsIDs.length;
+  }
+
+  addNewProduct() {
+    this.setState({ productsIDs: this.state.productsIDs.concat(this.getNewProductID()) });
+  }
+
+  removeProduct(id) {
+    this.setState({ productsIDs: this.state.productsIDs.remove(productID => productID === id) });
   }
 
   render() {
+    let products = this.state.productsIDs.map(
+      product_id =>
+        <ProductInput removeProduct={ this.removeProduct.bind(this) } categories={ this.props.categories } key={ product_id } ref={ product_id } id={ product_id } />
+      );
+
     return (
       <div>
-        { this.state.products }
+        { products }
         <ProductsInputAddButton addProduct={ this.addNewProduct.bind(this) } />
       </div>
     );

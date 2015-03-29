@@ -1,6 +1,7 @@
 import React from "react";
 
 import { clearInput } from "../services/clear_input";
+import Customer       from "../../../models/customer"
 
 export default class CustomerDetailsInput extends React.Component {
   resetState() {
@@ -9,7 +10,9 @@ export default class CustomerDetailsInput extends React.Component {
   }
 
   getCustomerDetails() {
-
+    let customerName  = document.getElementById('customer_name').value;
+    let customerEmail = document.getElementById('customer_email').value;
+    return new Customer(customerName, customerEmail);
   }
 
   render() {

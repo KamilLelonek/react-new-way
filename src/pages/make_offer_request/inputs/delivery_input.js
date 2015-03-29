@@ -1,13 +1,15 @@
 import React from "react";
 
+import Delivery from "../../../models/delivery"
+
 class DeliveryInput extends React.Component {
   resetState() {
-    let element = document.getElementById('delivery_option');
+    let element = document.getElementById("delivery_option");
     element.value = this.props.deliveries.first.id;
   }
 
-  getDelivery() {
-
+  getDeliveryID() {
+    return document.getElementById("delivery_option").value;
   }
 
   componentWillMount() {
@@ -19,7 +21,7 @@ class DeliveryInput extends React.Component {
   }
 
   componentDidMount() {
-    $(React.findDOMNode(this)).find('select').material_select();
+    $(React.findDOMNode(this)).find("select").material_select();
   }
 
   render() {

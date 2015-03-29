@@ -1,6 +1,13 @@
 import React from "react";
 
 class CategoryInput extends React.Component {
+  getID() {
+    let $element = $(React.findDOMNode(this));
+    let $select  = $element.find("select");
+    let value    = $select.val();
+    return value;
+  }
+
   componentWillMount() {
     this.categories =
       this.props.categories.map(

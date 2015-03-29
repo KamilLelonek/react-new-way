@@ -42,9 +42,10 @@ export default class MakeOfferRequest extends React.Component {
   sendData() {
     let customerDetails         = this.refs["customer_details"].getCustomerDetails();
     let companyDetails          = this.refs["company_details"].getCompanyDetails();
+    let deliveryID              = this.refs["delivery"].getDeliveryID();
     let products                = this.refs["products"].getProducts();
-    let delivery                = this.refs["delivery"].getDelivery();
-    let makeOfferRequestService = new MakeOfferRequestService(customerDetails, companyDetails, products, delivery)
+    debugger
+    let makeOfferRequestService = new MakeOfferRequestService(customerDetails, companyDetails, products, deliveryID)
   }
 
   resetForm() {

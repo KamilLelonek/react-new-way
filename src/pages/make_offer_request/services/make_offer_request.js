@@ -1,5 +1,5 @@
 export default class MakeOfferRequestService {
-  constructor(customerDetails, companyDetails, products, delivery) {
+  constructor(customerDetails, companyDetails, products, deliveryID) {
 
   }
 
