@@ -3,7 +3,7 @@ import React from "react";
 class SubmitButton extends React.Component {
   render() {
     return (
-      <button className="btn waves-effect waves-light" type="submit" name="action" onClick={ this.props.clearInputs }>
+      <button className="btn waves-effect waves-light" type="submit" name="action" onClick={ this.props.submit }>
         Submit
         <i className="mdi-content-send right"></i>
       </button>
@@ -11,6 +11,6 @@ class SubmitButton extends React.Component {
   }
 };
 
-SubmitButton.propTypes = { clearInputs: React.PropTypes.func };
+SubmitButton.propTypes = { submit: React.PropTypes.func };
 
 export default SubmitButton;

@@ -1,7 +1,7 @@
 import React from "react";
 
 import ProductInput           from "./product_input"
-import ProductsInputAddButton from "./products_input_add_button"
+import ProductsInputAddButton from "../buttons/products_input_add_button"
 
 class ProductsInput extends React.Component {
   constructor(props) {

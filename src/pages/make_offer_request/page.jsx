@@ -6,7 +6,8 @@ import ProductsInput        from "./inputs/products_input"
 import DeliveryInput        from "./inputs/delivery_input"
 import CustomerDetailsInput from "./inputs/customer_details_input"
 import CompanyDetailsInput  from "./inputs/company_details_input"
-import SubmitButton         from "./inputs/submit_button"
+import SubmitButton         from "./buttons/submit_button"
+import Spinner              from "./components/spinner"
 
 export default class MakeOfferRequest extends React.Component {
   static fetchData() {
@@ -26,7 +27,7 @@ export default class MakeOfferRequest extends React.Component {
     this.state = { categories, deliveries, loading: false };
   }
 
-  clearInputs() {
+  submit() {
     /**
       1. Validate input
       2. Show progress // this.toggleSpinner(true);
@@ -47,24 +48,14 @@ export default class MakeOfferRequest extends React.Component {
 
   render() {
     let component = this.state.loading ?
-      <div className="preloader-wrapper big active">
-        <div className="spinner-layer spinner-blue">
-          <div className="circle-clipper left">
-            <div className="circle"></div>
-          </div><div className="gap-patch">
-            <div className="circle"></div>
-          </div><div className="circle-clipper right">
-            <div className="circle"></div>
-          </div>
-        </div>
-      </div>
+      <Spinner />
     :
       <from>
         <CustomerDetailsInput ref="customer_details" />
         <CompanyDetailsInput  ref="company_details"  />
-        <ProductsInput        ref="products"         categories={ this.state.categories } />
-        <DeliveryInput        ref="delivery"         deliveries={ this.state.deliveries } />
-        <SubmitButton clearInputs={ this.clearInputs.bind(this) } />
+        <ProductsInput        ref="products"         categories={ this.state.categories }  />
+        <DeliveryInput        ref="delivery"         deliveries={ this.state.deliveries }  />
+        <SubmitButton                                submit=    { this.submit.bind(this) } />
       </from>;
 
     return(

@@ -2,7 +2,7 @@ import React from "react";
 
 import CategoryInput             from "./category_input"
 import AmountInput               from "./amount_input"
-import ProductsInputRemoveButton from "./product_input_remove_button"
+import ProductsInputRemoveButton from "../buttons/product_input_remove_button"
 
 class ProductInput extends React.Component {
   render() {
