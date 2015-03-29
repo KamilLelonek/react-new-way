@@ -26,6 +26,10 @@ class ProductsInput extends React.Component {
     this.setState({ products: this.state.products.remove(product => product.props.id === id) });
   }
 
+  getProducts() {
+
+  }
+
   render() {
     return (
       <div>

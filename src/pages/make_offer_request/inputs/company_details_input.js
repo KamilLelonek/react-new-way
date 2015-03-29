@@ -9,6 +9,10 @@ export default class CompanyDetailsInput extends React.Component {
     clearInput('company_address');
   }
 
+  getCompanyDetails() {
+
+  }
+
   render() {
     return (
       <div className="row">

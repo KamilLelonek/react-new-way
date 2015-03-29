@@ -8,6 +8,10 @@ export default class CustomerDetailsInput extends React.Component {
     clearInput('customer_email');
   }
 
+  getCustomerDetails() {
+
+  }
+
   render() {
     return (
       <div className="row">

@@ -2,12 +2,13 @@ import React from "react/addons";
 
 import { getData, postData } from "../../common/request";
 
-import ProductsInput        from "./inputs/products_input"
-import DeliveryInput        from "./inputs/delivery_input"
-import CustomerDetailsInput from "./inputs/customer_details_input"
-import CompanyDetailsInput  from "./inputs/company_details_input"
-import SubmitButton         from "./buttons/submit_button"
-import Spinner              from "./components/spinner"
+import ProductsInput           from "./inputs/products_input";
+import DeliveryInput           from "./inputs/delivery_input";
+import CustomerDetailsInput    from "./inputs/customer_details_input";
+import CompanyDetailsInput     from "./inputs/company_details_input";
+import SubmitButton            from "./buttons/submit_button";
+import Spinner                 from "./components/spinner";
+import MakeOfferRequestService from "./services/make_offer_request"
 
 export default class MakeOfferRequest extends React.Component {
   static fetchData() {
@@ -31,10 +32,19 @@ export default class MakeOfferRequest extends React.Component {
     /**
       1. Validate input
       2. Show progress // this.toggleSpinner(true);
-      3. Send date
+      3. Send data
       4. Show result
       5. Reset form // this.resetForm();
     */
+    this.sendData();
+  }
+
+  sendData() {
+    let customerDetails         = this.refs["customer_details"].getCustomerDetails();
+    let companyDetails          = this.refs["company_details"].getCompanyDetails();
+    let products                = this.refs["products"].getProducts();
+    let delivery                = this.refs["delivery"].getDelivery();
+    let makeOfferRequestService = new MakeOfferRequestService(customerDetails, companyDetails, products, delivery)
   }
 
   resetForm() {
@@ -64,4 +74,4 @@ export default class MakeOfferRequest extends React.Component {
       </div>
     );
   }
-};
+}

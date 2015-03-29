@@ -6,6 +6,10 @@ class DeliveryInput extends React.Component {
     element.value = this.props.deliveries.first.id;
   }
 
+  getDelivery() {
+
+  }
+
   componentWillMount() {
     this.deliveries =
       this.props.deliveries.map(
