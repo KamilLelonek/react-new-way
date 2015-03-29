@@ -1,6 +1,6 @@
 import React from "react";
 
-import Delivery from "../models/delivery"
+import Delivery from "../../../models/delivery"
 
 class DeliveryComponent extends React.Component {
   render() {

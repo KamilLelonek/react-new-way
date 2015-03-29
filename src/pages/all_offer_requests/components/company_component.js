@@ -1,6 +1,6 @@
 import React from "react";
 
-import Company from "../models/company"
+import Company from "../../../models/company"
 
 class CompanyComponent extends React.Component {
   render() {

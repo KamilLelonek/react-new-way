@@ -1,6 +1,6 @@
 import React from "react";
 
-import Customer from "../models/customer"
+import Customer from "../../../models/customer"
 
 class CustomerComponent extends React.Component {
   render() {

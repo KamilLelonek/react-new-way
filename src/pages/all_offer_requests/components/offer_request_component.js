@@ -6,7 +6,7 @@ import CompanyComponent      from "./company_component";
 import CustomerComponent     from "./customer_component";
 import OfferDetailsComponent from "./offer_details_component";
 
-import OfferRequest from "../models/offer_request"
+import OfferRequest from "../../../models/offer_request"
 
 class OfferRequestComponent extends React.Component {
   componentDidMount() {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Category from "../models/category"
+import Category from "../../../models/category"
 
 class CategoryComponent extends React.Component {
   render() {

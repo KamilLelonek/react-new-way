@@ -1,6 +1,6 @@
 import React                 from "react";
 import { getData }           from "../../common/request";
-import OfferRequest          from "./models/offer_request"
+import OfferRequest          from "../../models/offer_request"
 import OfferRequestComponent from "./components/offer_request_component"
 
 class AllOfferRequests extends React.Component {

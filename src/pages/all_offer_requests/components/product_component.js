@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import Product              from "../models/product";
+import Product              from "../../../models/product";
 import CategoryComponent    from "./category_component";
 import ProductInfoComponent from "./product_info_component";
 

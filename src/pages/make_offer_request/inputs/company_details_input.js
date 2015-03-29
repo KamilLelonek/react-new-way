@@ -1,6 +1,6 @@
 import React from "react";
 
-import { clearInput } from "../../../common/clear_input";
+import { clearInput } from "../services/clear_input";
 
 export default class CompanyDetailsInput extends React.Component {
   resetState() {

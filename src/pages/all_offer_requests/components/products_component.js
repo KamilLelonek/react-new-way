@@ -1,6 +1,6 @@
 import React from "react";
 
-import Product          from "../models/product";
+import Product          from "../../../models/product";
 import ProductComponent from "./product_component";
 
 class ProductsComponent extends React.Component {
