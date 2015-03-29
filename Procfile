@@ -1,1 +1,2 @@
-web: npm start
+express: npm run express
+webpack: npm run webpack

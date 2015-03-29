@@ -13,7 +13,7 @@ let generalRequest = function(url, requestData, method) {
   let requestCompleted = 4;
   let statusSuccess    = 200;
   let request          = new XMLHttpRequest();
-  let baseUrl          = "";
+  let baseUrl          = environment.HOST;
 
   if (!request) {
     throw new Error('Could not initialize XMLHttpRequest object!');

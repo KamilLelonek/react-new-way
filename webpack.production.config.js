@@ -1,13 +1,10 @@
 var webpack = require('webpack');
 
-/**
- * This is the Webpack configuration file for production.
- */
 module.exports = {
   entry: "./src/main",
 
   output: {
-    path: __dirname + "/build/",
+    path:     __dirname + "/build/",
     filename: "app.js"
   },
 
@@ -20,5 +17,13 @@ module.exports = {
 
   resolve: {
     extensions: ['', '.js', '.jsx']
-  }
+  },
+
+  plugins: [
+    new webpack.DefinePlugin({
+      "environment": {
+        "HOST": JSON.stringify("https://rails-new-way.herokuapp.com")
+      }
+    })
+  ]
 }

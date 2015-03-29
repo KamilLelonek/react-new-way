@@ -16,9 +16,9 @@ To install all of required dependecies run:
 
 Start the local dev server:
 
-    npm start
+    foreman start
 
-Navigate to **http://localhost:5000/** to view the app.
+Navigate to **http://localhost:8080/** to view the app.
 
 ## Tests
 

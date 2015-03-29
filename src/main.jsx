@@ -45,7 +45,7 @@ import Router from "react-router";
 import React  from "react";
 
 // Start the router
-Router.run(AppRouter.getRoutes(), Router.HistoryLocation, function(Handler, state) {
+Router.run(AppRouter.getRoutes(), function(Handler, state) {
   fetchDataFromPages(state.routes).then((data) => {
     React.render(<Handler data={ data } />, document.getElementById("app"));
   });

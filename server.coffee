@@ -12,6 +12,11 @@ app.use (req, res, next) ->
   else
     next()
 
+app.use (req, res, next) ->
+  res.header 'Access-Control-Allow-Origin', '*'
+  res.header 'Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'
+  next()
+
 ###********************************************************
 #
 # Express routes for:
@@ -39,34 +44,6 @@ app.get /.+/, (req, res) ->
     res.sendFile indexHtmlFile
 
   fileExists and respondWithJSON() or respondWithIndexHTML()
-
-###*********************************************************
-#
-# Webpack Dev Server
-#
-# See: http://webpack.github.io/docs/webpack-dev-server.html
-#
-#***********************************************************
-###
-
-WebpackDevServer = require 'webpack-dev-server'
-webpack          = require 'webpack'
-config           = require './webpack.local.config'
-
-new WebpackDevServer webpack(config),
-  publicPath:         config.output.publicPath
-  hot:                true
-  noInfo:             true
-  historyApiFallback: true
-.listen 9090, 'localhost', (err, result) ->
-  console.log err if err
-
-###*************
-#
-# Express server
-#
-#***************
-###
 
 server = app.listen process.env.PORT || 5000, ->
   console.log 'Essential React listening at http://localhost:%s/', server.address().port
