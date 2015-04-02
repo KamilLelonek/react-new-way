@@ -31,12 +31,12 @@ export default class MakeOfferRequest extends React.Component {
   submit() {
     /**
       1. Validate input
-      2. Show progress // this.toggleSpinner(true);
-      3. Send data
+      2. Show progress  // this.toggleSpinner(true);
+      3. Send data      // this.sendData();
       4. Show result
-      5. Reset form // this.resetForm();
+      5. Reset form     // this.resetForm();
     */
-    this.sendData();
+    this.toggleSpinner(true);
   }
 
   sendData() {
@@ -44,7 +44,6 @@ export default class MakeOfferRequest extends React.Component {
     let companyDetails          = this.refs["company_details"].getCompanyDetails();
     let deliveryID              = this.refs["delivery"].getDeliveryID();
     let products                = this.refs["products"].getProducts();
-    debugger
     let makeOfferRequestService = new MakeOfferRequestService(customerDetails, companyDetails, products, deliveryID)
   }
 
