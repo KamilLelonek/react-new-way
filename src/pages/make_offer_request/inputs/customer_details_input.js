@@ -10,9 +10,26 @@ export default class CustomerDetailsInput extends React.Component {
   }
 
   getCustomerDetails() {
-    let customerName  = document.getElementById('customer_name').value;
-    let customerEmail = document.getElementById('customer_email').value;
-    return new Customer(customerName, customerEmail);
+    return new Customer(this.customerName.value, this.customerEmail.value);
+  }
+
+  validate() {
+    return new Promise(
+             (resolve, reject) => {
+               if (!this.customerName.value) {
+                 reject("Customer name must be filled!");
+               } else if (!this.customerEmail.value) {
+                 reject("Customer email must be filled!");
+               } else {
+                 resolve();
+               }
+             }
+           );
+  }
+
+  componentDidMount() {
+    this.customerName  = document.getElementById('customer_name');
+    this.customerEmail = document.getElementById('customer_email');
   }
 
   render() {
@@ -25,7 +42,7 @@ export default class CustomerDetailsInput extends React.Component {
         </div>
         <div className="input-field col s6">
           <i className="mdi-communication-email prefix"></i>
-          <input id="customer_email" type="tel" className="validate" />
+          <input id="customer_email" type="email" className="validate" />
           <label htmlFor="customer_email">Customer Email</label>
         </div>
       </div>

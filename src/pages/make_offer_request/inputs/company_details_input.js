@@ -11,10 +11,29 @@ export default class CompanyDetailsInput extends React.Component {
   }
 
   getCompanyDetails() {
-    let companyName    = document.getElementById('company_name').value;
-    let companyPhone   = document.getElementById('company_phone').value;
-    let companyAddress = document.getElementById('company_address').value;
-    return new Company(companyName, companyPhone, companyAddress);
+    return new Company(this.companyName.value, this.companyPhone.value, this.companyAddress.value);
+  }
+
+  validate() {
+    return new Promise(
+             (resolve, reject) => {
+               if (!this.companyName.value) {
+                 reject("Comapny name must be filled!");
+               } else if (!this.companyPhone.value) {
+                 reject("Company phone must be filled!");
+               } else if (!this.companyAddress.value) {
+                 reject("Company address must be filled!");
+               } else {
+                 resolve();
+               }
+             }
+           );
+  }
+
+  componentDidMount() {
+    this.companyName    = document.getElementById('company_name');
+    this.companyPhone   = document.getElementById('company_phone');
+    this.companyAddress = document.getElementById('company_address');
   }
 
   render() {

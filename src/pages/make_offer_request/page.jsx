@@ -28,32 +28,9 @@ export default class MakeOfferRequest extends React.Component {
     this.state = { categories, deliveries, loading: false };
   }
 
-  submit() {
-    /**
-      1. Validate input
-      2. Show progress  // this.toggleSpinner(true);
-      3. Send data      // this.sendData();
-      4. Show result
-      5. Reset form     // this.resetForm();
-    */
-    this.toggleSpinner(true);
-  }
-
-  sendData() {
-    let customerDetails         = this.refs["customer_details"].getCustomerDetails();
-    let companyDetails          = this.refs["company_details"].getCompanyDetails();
-    let deliveryID              = this.refs["delivery"].getDeliveryID();
-    let products                = this.refs["products"].getProducts();
-    let makeOfferRequestService = new MakeOfferRequestService(customerDetails, companyDetails, products, deliveryID)
-  }
-
-  resetForm() {
-    let references = this.refs;
-    Object.keys(references).forEach((reference_name) => references[reference_name].resetState());
-  }
-
-  toggleSpinner(show) {
-    this.setState(React.addons.update(this.state, { $merge: { loading: show } }));
+  componentDidMount() {
+    let references  = this.refs;
+    this.components = Object.keys(references).map(reference_name => references[reference_name]);
   }
 
   render() {
@@ -73,5 +50,43 @@ export default class MakeOfferRequest extends React.Component {
         { component }
       </div>
     );
+  }
+
+  submit() {
+    this.validate().then(
+        ()       => console.log('success'),
+        (reason) => Materialize.toast(reason, 1000)
+      );
+    /**
+      1. Validate input
+      2. Show progress  // this.toggleSpinner(true);
+      3. Send data      // this.sendData();
+      4. Show result
+      5. Reset form     // this.resetForm();
+    */
+
+  }
+
+  validate() {
+    return Promise.all([
+      this.refs["customer_details"].validate(),
+      this.refs["company_details"].validate()
+    ]);
+  }
+
+  sendData() {
+    let customerDetails         = this.refs["customer_details"].getCustomerDetails();
+    let companyDetails          = this.refs["company_details"].getCompanyDetails();
+    let deliveryID              = this.refs["delivery"].getDeliveryID();
+    let products                = this.refs["products"].getProducts();
+    let makeOfferRequestService = new MakeOfferRequestService(customerDetails, companyDetails, products, deliveryID)
+  }
+
+  resetForm() {
+    this.components.forEach(c => c.resetState());
+  }
+
+  toggleSpinner(show) {
+    this.setState(React.addons.update(this.state, { $merge: { loading: show } }));
   }
 }
