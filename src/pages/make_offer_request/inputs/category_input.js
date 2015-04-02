@@ -17,7 +17,7 @@ class CategoryInput extends React.Component {
   }
 
   componentDidMount() {
-    $(React.findDOMNode(this)).find('select').material_select();
+    $(React.findDOMNode(this)).find('select').dropdown();
   }
 
   render() {
