@@ -29,7 +29,8 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       "environment": {
-        "HOST": JSON.stringify("http://localhost:5000")
+        "HOST": JSON.stringify("http://localhost:3000")
+        // "HOST": JSON.stringify("http://localhost:5000")
       }
     })
   ]
