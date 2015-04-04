@@ -1,6 +1,6 @@
 import React from "react/addons";
 
-import { getData, postData } from "../../common/request";
+import { getData } from "../../common/request";
 
 import ProductsInput           from "./inputs/products_input";
 import DeliveryInput           from "./inputs/delivery_input";
@@ -53,20 +53,10 @@ export default class MakeOfferRequest extends React.Component {
   }
 
   submit() {
-    Promise.all([
-        this.validate()
-      ]).then(
-        ()       => console.log('success'),
-        (reason) => Materialize.toast(reason, 1000)
-      );
-    /**
-      1. Validate input
-      2. Show progress  // this.toggleSpinner(true);
-      3. Send data      // this.sendData();
-      4. Show result
-      5. Reset form     // this.resetForm();
-    */
-
+    this.validate().then(
+      this.validationSuccessful.bind(this),
+      (reason) => Materialize.toast(reason, 1000, 'rounded')
+    );
   }
 
   validate() {
@@ -77,12 +67,34 @@ export default class MakeOfferRequest extends React.Component {
     ]);
   }
 
+  validationSuccessful() {
+    this.sendData().then(
+      this.submissionSuccessful.bind(this),
+      this.submissionUnsuccessful.bind(this)
+    );
+  }
+
   sendData() {
     let customerDetails         = this.refs["customer_details"].getCustomerDetails();
     let companyDetails          = this.refs["company_details"].getCompanyDetails();
     let deliveryID              = this.refs["delivery"].getDeliveryID();
     let products                = this.refs["products"].getProducts();
     let makeOfferRequestService = new MakeOfferRequestService(customerDetails, companyDetails, products, deliveryID)
+
+    this.toggleSpinner(true);
+
+    return makeOfferRequestService.call();
+  }
+
+  submissionSuccessful() {
+    this.toggleSpinner(false);
+    this.resetForm();
+    Materialize.toast("Your request was submitted!", 2000, 'rounded');
+  }
+
+  submissionUnsuccessful(reason) {
+    this.toggleSpinner(false);
+    Materialize.toast(JSON.stringify(reason), 2000, 'rounded');
   }
 
   resetForm() {
