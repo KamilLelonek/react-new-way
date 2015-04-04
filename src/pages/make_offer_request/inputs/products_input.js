@@ -30,6 +30,18 @@ class ProductsInput extends React.Component {
     this.setState({ productsIDs: this.state.productsIDs.remove(productID => productID === id) });
   }
 
+  validate() {
+    return new Promise(
+             (resolve, reject) => {
+               if (this.state.productsIDs.length == 0) {
+                 reject("You must add at least one product!");
+               } else {
+                 resolve();
+               }
+             }
+           );
+  }
+
   render() {
     let products = this.state.productsIDs.map(
       product_id =>

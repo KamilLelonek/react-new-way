@@ -53,7 +53,9 @@ export default class MakeOfferRequest extends React.Component {
   }
 
   submit() {
-    this.validate().then(
+    Promise.all([
+        this.validate()
+      ]).then(
         ()       => console.log('success'),
         (reason) => Materialize.toast(reason, 1000)
       );
@@ -70,7 +72,8 @@ export default class MakeOfferRequest extends React.Component {
   validate() {
     return Promise.all([
       this.refs["customer_details"].validate(),
-      this.refs["company_details"].validate()
+      this.refs["company_details"].validate(),
+      this.refs["products"].validate()
     ]);
   }
 
