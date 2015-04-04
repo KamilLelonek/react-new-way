@@ -7,11 +7,8 @@
  * @param  {String} method      HTTP method that request should be opened with
  * @return {Promise}            resolves or rejects according to the response
  */
-let generalRequest = function(url, requestData, method) {
-  // return new Promise(function(resolve, reject) { resolve(url); });
-
+let generalRequest = (url, requestData, method) => {
   let requestCompleted = 4;
-  let statusSuccess    = 200;
   let request          = new XMLHttpRequest();
   let baseUrl          = environment.HOST;
 
@@ -19,23 +16,23 @@ let generalRequest = function(url, requestData, method) {
     throw new Error('Could not initialize XMLHttpRequest object!');
   }
 
-  let promise = new Promise(function(resolve, reject) {
-    request.onreadystatechange = function() {
+  let promise = new Promise((resolve, reject) => {
+    request.onreadystatechange = () => {
       if (request.readyState === requestCompleted) {
-        let responseObject = JSON.parse(request.responseText);
+        let responseObject = request.responseText ? JSON.parse(request.responseText) : "";
 
-        if (request.status === statusSuccess) {
+        if (request.status.toString().match("20*").length > 0) {
           resolve(responseObject);
         } else {
-          reject(responseObject);
+          reject(responseObject.table.errors);
         }
       }
     }
-
-    request.open(method, baseUrl+url);
-    request.setRequestHeader('Content-Type', 'application/json');
-    request.send(JSON.stringify(requestData));
   });
+
+  request.open(method, baseUrl+url);
+  request.setRequestHeader('Content-Type', 'application/json');
+  request.send(JSON.stringify(requestData));
 
   return promise;
 };
