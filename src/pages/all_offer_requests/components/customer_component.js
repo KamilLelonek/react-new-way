@@ -5,7 +5,7 @@ import Customer from "../../../models/customer"
 class CustomerComponent extends React.Component {
   render() {
     return(
-      <div>
+      <li>
         <div className="collapsible-header">
           <i className="mdi-social-person"></i>
           CustomerComponent
@@ -16,7 +16,7 @@ class CustomerComponent extends React.Component {
             <a className="collection-item">Email<span className="badge">{ this.props.customer.email }</span></a>
           </ul>
         </div>
-      </div>
+      </li>
     )
   }
 }

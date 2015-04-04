@@ -8,7 +8,7 @@ import ProductInfoComponent from "./product_info_component";
 class ProductComponent extends React.Component {
   render() {
     return(
-      <div>
+      <li>
         <div className="collapsible-header">
           <i className="mdi-maps-local-grocery-store"></i>
           ProductComponent
@@ -17,7 +17,7 @@ class ProductComponent extends React.Component {
           <ProductInfoComponent product={ this.props.product }/>
           <CategoryComponent category={ this.props.product.category }/>
         </div>
-      </div>
+      </li>
     )
   }
 }

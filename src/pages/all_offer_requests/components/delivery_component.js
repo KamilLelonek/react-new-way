@@ -5,7 +5,7 @@ import Delivery from "../../../models/delivery"
 class DeliveryComponent extends React.Component {
   render() {
     return(
-      <div>
+      <li>
         <div className="collapsible-header">
           <i className="mdi-maps-local-shipping"></i>
           DeliveryComponent
@@ -16,7 +16,7 @@ class DeliveryComponent extends React.Component {
             <a className="collection-item">Description<span className="badge">{ this.props.delivery.description }</span></a>
           </ul>
         </div>
-      </div>
+      </li>
     )
   }
 }

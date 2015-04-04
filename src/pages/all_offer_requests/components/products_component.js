@@ -10,9 +10,11 @@ class ProductsComponent extends React.Component {
 
   render() {
     return(
-      <div>
-        { this.products }
-      </div>
+      <li>
+        <ul className="collapsible popout" data-collapsible="accordion">
+          { this.products }
+        </ul>
+      </li>
     )
   }
 }

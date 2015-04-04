@@ -10,7 +10,7 @@ import OfferRequest from "../../../models/offer_request"
 
 class OfferRequestComponent extends React.Component {
   componentDidMount() {
-    $(React.findDOMNode(this)).collapsible();
+    $('.collapsible').collapsible();
   }
 
   render() {

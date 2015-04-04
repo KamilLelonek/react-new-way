@@ -5,7 +5,7 @@ import OfferRequest from "../../../models/offer_request"
 class OfferDetailsComponent extends React.Component {
   render() {
     return(
-      <div>
+      <li>
         <div className="collapsible-header active">
           <i className="mdi-action-assignment"></i>
           Offer Request
@@ -15,7 +15,7 @@ class OfferDetailsComponent extends React.Component {
             <a className="collection-item">ID<span className="badge">{ this.props.offerRequest.id }</span></a>
           </ul>
         </div>
-      </div>
+      </li>
     )
   }
 }

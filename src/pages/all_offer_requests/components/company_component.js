@@ -5,7 +5,7 @@ import Company from "../../../models/company"
 class CompanyComponent extends React.Component {
   render() {
     return(
-      <div>
+      <li>
         <div className="collapsible-header">
           <i className="mdi-communication-business"></i>
           CompanyComponent
@@ -17,7 +17,7 @@ class CompanyComponent extends React.Component {
             <a className="collection-item">Address<span className="badge">{ this.props.company.address }</span></a>
           </ul>
         </div>
-      </div>
+      </li>
     )
   }
 }
