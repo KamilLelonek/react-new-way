@@ -7,6 +7,7 @@ import DeliveryInput           from "./inputs/delivery_input";
 import CustomerDetailsInput    from "./inputs/customer_details_input";
 import CompanyDetailsInput     from "./inputs/company_details_input";
 import SubmitButton            from "./buttons/submit_button";
+import ResetButton             from "./buttons/reset_button";
 import Spinner                 from "./components/spinner";
 import MakeOfferRequestService from "./services/make_offer_request"
 
@@ -42,6 +43,7 @@ export default class MakeOfferRequest extends React.Component {
         <CompanyDetailsInput  ref="company_details"  />
         <ProductsInput        ref="products"         categories={ this.state.categories }  />
         <DeliveryInput        ref="delivery"         deliveries={ this.state.deliveries }  />
+        <ResetButton                                 reset=     { this.reset.bind(this) } />
         <SubmitButton                                submit=    { this.submit.bind(this) } />
       </from>;
 
@@ -57,6 +59,10 @@ export default class MakeOfferRequest extends React.Component {
       this.validationSuccessful.bind(this),
       (reason) => Materialize.toast(reason, 1000, 'rounded')
     );
+  }
+
+  reset() {
+    this.components.forEach(c => c.resetState());
   }
 
   validate() {
@@ -88,17 +94,12 @@ export default class MakeOfferRequest extends React.Component {
 
   submissionSuccessful() {
     this.toggleSpinner(false);
-    this.resetForm();
     Materialize.toast("Your request was submitted!", 2000, 'rounded');
   }
 
   submissionUnsuccessful(reason) {
     this.toggleSpinner(false);
     Materialize.toast(JSON.stringify(reason), 2000, 'rounded');
-  }
-
-  resetForm() {
-    this.components.forEach(c => c.resetState());
   }
 
   toggleSpinner(show) {
