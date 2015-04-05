@@ -1,6 +1,6 @@
 # ReactJS new way
 
-Frontend application for [rails-new-way]() API.
+Frontend application for [rails-new-way](https://github.com/KamilLelonek/rails-new-way) API.
 
 ## Prerequisites
 
@@ -45,3 +45,9 @@ To build minified production app run:
 To remove generated `build/app.js` run:
 
     npm run clean
+
+# Demo
+
+Website is available under:
+
+http://squixy.zz.mu/react-new-way
