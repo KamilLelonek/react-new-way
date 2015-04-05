@@ -21,14 +21,14 @@ class DeliveryInput extends React.Component {
   }
 
   componentDidMount() {
-    $(React.findDOMNode(this)).find("select").dropdown();
+    $(React.findDOMNode(this)).find("select").material_select();
   }
 
   render() {
     return (
-      <div>
+      <div id="delivery">
         <label>Delivery</label>
-        <select id="delivery_option" defaultValue="Select delivery">
+        <select id="delivery_option">
           { this.deliveries }
         </select>
       </div>

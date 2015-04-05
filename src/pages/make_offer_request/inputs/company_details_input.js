@@ -47,7 +47,7 @@ export default class CompanyDetailsInput extends React.Component {
           </div>
           <div className="input-field col s6">
             <i className="mdi-communication-phone prefix"></i>
-            <input id="company_phone" type="text" className="validate" />
+            <input id="company_phone" type="tel" className="validate" />
             <label htmlFor="company_phone">Company Phone</label>
           </div>
         </div>
