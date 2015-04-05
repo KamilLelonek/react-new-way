@@ -2,6 +2,7 @@ import React                 from "react";
 import { getData }           from "../../common/request";
 import OfferRequest          from "../../models/offer_request"
 import OfferRequestComponent from "./components/offer_request_component"
+import NoDataComponent       from "./components/no_data_component"
 
 class AllOfferRequests extends React.Component {
   static fetchData() {
@@ -18,9 +19,11 @@ class AllOfferRequests extends React.Component {
   }
 
   render() {
+    let element = this.offerRequests.lenght == 0 ? <NoDataComponent /> : this.offerRequests
+    console.log(<NoDataComponent />)
     return (
       <div className="container">
-        { this.offerRequests }
+        <NoDataComponent />
       </div>
     );
   }
