@@ -7,7 +7,7 @@
     "express": "./node_modules/nodemon/bin/nodemon.js server.coffee",
     "webpack": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js  -d --config webpack.local.config.js --content-base build/",
     "build": "./node_modules/webpack/bin/webpack.js -p --config webpack.production.config.js",
-    "test": "PHANTOMJS_BIN=./node_modules/.bin/phantomjs ./node_modules/karma/bin/karma start karma.config.js",
+    "test": "PHANTOMJS_BIN=./node_modules/.bin/phantomjs ./node_modules/karma/bin/karma start ./test/karma.config.js",
     "clean": "rm build/app.js"
   },
   "repository": {
