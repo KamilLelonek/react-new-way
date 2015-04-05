@@ -21,7 +21,7 @@ let generalRequest = (url, requestData, method) => {
       if (request.readyState === requestCompleted) {
         let responseObject = request.responseText ? JSON.parse(request.responseText) : "";
 
-        if (request.status.toString().match("20*").length > 0) {
+        if (request.status.toString().match(/^20[0-9]$/)) {
           resolve(responseObject);
         } else {
           reject(responseObject.table.errors);
