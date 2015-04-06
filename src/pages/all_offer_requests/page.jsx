@@ -20,10 +20,9 @@ class AllOfferRequests extends React.Component {
 
   render() {
     let element = this.offerRequests.lenght == 0 ? <NoDataComponent /> : this.offerRequests
-    console.log(<NoDataComponent />)
     return (
       <div className="container">
-        <NoDataComponent />
+        { element }
       </div>
     );
   }
