@@ -6,6 +6,8 @@
 import 'babel-core/polyfill';
 
 import './common/test_request';
+import './components/test_footer';
+
 // import './common/test_sample_component';
 // import './common/test_session';
 

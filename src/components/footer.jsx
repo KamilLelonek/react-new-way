@@ -20,8 +20,8 @@ export default class Footer extends React.Component {
         </div>
         <div className="light-blue lighten-2 footer-copyright">
           <div className="container">
-          <a className="grey-text text-lighten-4" href="http://kamil.lelonek.me/">&copy; { this.currentYear() } Kamil Lelonek</a>
-          <a className="grey-text text-lighten-4 right" href={ this.API_URL }>API</a>
+            <a className="current-year grey-text text-lighten-4" href="http://kamil.lelonek.me/">&copy; { this.currentYear() } Kamil Lelonek</a>
+            <a className="grey-text text-lighten-4 right" href={ this.API_URL }>API</a>
           </div>
         </div>
       </footer>
