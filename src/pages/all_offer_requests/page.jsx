@@ -19,7 +19,7 @@ class AllOfferRequests extends React.Component {
   }
 
   render() {
-    let element = this.offerRequests.lenght == 0 ? <NoDataComponent /> : this.offerRequests
+    let element = this.offerRequests.length === 0 ? <NoDataComponent /> : this.offerRequests
     return (
       <div className="container">
         { element }

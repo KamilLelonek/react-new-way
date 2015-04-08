@@ -33,7 +33,7 @@ class ProductsInput extends React.Component {
   validate() {
     return new Promise(
              (resolve, reject) => {
-               if (this.state.productsIDs.length == 0) {
+               if (this.state.productsIDs.length === 0) {
                  reject("You must add at least one product!");
                } else {
                  resolve();
