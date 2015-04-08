@@ -1,12 +1,12 @@
 /**
  * Function.prototype.bind polyfill used by PhantomJS
  */
+
 if (typeof Function.prototype.bind != 'function') {
   Function.prototype.bind = function bind(obj) {
     var args = Array.prototype.slice.call(arguments, 1),
-      self = this,
-      nop = function() {
-      },
+      self  = this,
+      nop   = function() { },
       bound = function() {
         return self.apply(
           this instanceof nop ? this : (obj || {}), args.concat(
@@ -14,7 +14,7 @@ if (typeof Function.prototype.bind != 'function') {
           )
         );
       };
-    nop.prototype = this.prototype || {};
+    nop.prototype   = this.prototype || {};
     bound.prototype = new nop();
     return bound;
   };

@@ -23,6 +23,8 @@ module.exports = function(config) {
      */
     files: [
       './test/polyfill.js',
+      './node_modules/jquery/dist/jquery.min.js',
+      './node_modules/materialize-css/bin/materialize.js',
       './test/main.js'
     ],
 
